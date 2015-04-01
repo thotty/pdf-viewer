@@ -8,7 +8,7 @@ var pdfViewer = PDFViewer({
   pdfViewerContainer: '#container-id',
   debugNoise: true // {boolean} default: false
   style: 'bootstrap-v2.1.1', // {string} default: bootstrap-v2.1.1
-  i18n: 'pt-BR', // {string} en-US or pt-BR default: pt-BR
+  i18n: 'pt-BR' // {string} en-US or pt-BR default: pt-BR
 });
 pdfViewer.error(function () {
   console.warn('Erro!', arguments);
