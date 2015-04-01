@@ -137,7 +137,6 @@ var PDFViewer = function (options) {
      */
     _fail = function (error) {
         _debugNoise('): Fail!', arguments);
-        _errorCallback.apply(null,arguments);
         throw new Error('[PDFViewer Fail] ): ' + error);
     };
 
@@ -444,7 +443,7 @@ var PDFViewer = function (options) {
                         thumbWrapper = $('<a href="javascript:void(0);" />').addClass('thumbnail'),
                         page = thumb.data('thumb-page');
 
-                    _debugNoise('Monta a miniatura no carrosel: thumb ', thumb);
+                    _debugNoise('Monta a miniatura no carrossel: thumb ', thumb);
 
                     thumbWrapper.addClass(_getClass([
                         'sub-element',
@@ -466,7 +465,7 @@ var PDFViewer = function (options) {
                 };
 
                 while (thumbsIndex <= thumbsTotal) {
-                    _debugNoise('Monta as miniaturas no carrosel: item', carouselIndex);
+                    _debugNoise('Monta as miniaturas no carrossel: item', carouselIndex);
 
                     itemThumbs = thumbs.slice(thumbsIndex, thumbsLimit + thumbsIndex);
                     if (itemThumbs.length) {
@@ -711,9 +710,9 @@ var PDFViewer = function (options) {
          * @return {undefined}
          */
         loadViewer: function (url) {
-            var pdfDocumentLoadingTask,
-                onFulfilled,
-                onRejected;
+            var pdfSource,
+                pdfDocumentLoadingTask,
+                task = {};
 
             _debugNoise('- Carregando PDF (' + url + ')...');
 
@@ -724,7 +723,11 @@ var PDFViewer = function (options) {
                 _fail('Biblioteca PDF.js não encontrada', error);
             }
 
-            pdfDocumentLoadingTask = PDFJS.getDocument(url);
+            //@todo: implementar download fragmentado…
+            //@todo: implementar abrir apartir de arquivo local…
+            pdfSource = url;
+
+            pdfDocumentLoadingTask = PDFJS.getDocument(pdfSource);
             _debugNoise('[PDF.js]', 'pdfDocumentLoadingTask', pdfDocumentLoadingTask);
 
             pdfDocumentLoadingTask.onProgress = function (progress) {
@@ -732,18 +735,19 @@ var PDFViewer = function (options) {
                 _actions.progress(percent);
             };
 
-            onFulfilled = function (pdfDocument) {
-                _debugNoise('[PDF.js]', ':) onFulfilled', pdfDocument);
+            task.onFulfilled = function (pdfDocument) {
+                _debugNoise('[PDF.js]', ':) task.onFulfilled', pdfDocument);
                 _pdf.document = pdfDocument;
                 _actions.renderPage(_getOptions('initialPage'));
                 _actions.initializeThumbs();
             };
 
-            onRejected = function () {
-                _fail('[PDF.js] :( onRejected', arguments);
+            task.onRejected = function () {
+                _fail('[PDF.js] :( task.onRejected', arguments);
             };
 
-            pdfDocumentLoadingTask.then(onFulfilled, onRejected);
+            pdfDocumentLoadingTask.then(task.onFulfilled, task.onRejected);
+
         },
         /**
          * @return {integer}
