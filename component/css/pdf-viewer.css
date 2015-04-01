@@ -1,0 +1,63 @@
+.pdf-viewer-container .pdf-viewer-sub-element {
+    text-align: center;
+}
+.pdf-viewer-container .pdf-viewer-thumbs .pdf-viewer-thumbs-container .pdf-viewer-thumb,
+.pdf-viewer-container .pdf-viewer-preview .pdf-viewer-prev,
+.pdf-viewer-container .pdf-viewer-preview .pdf-viewer-next {
+    cursor: pointer;
+}
+.pdf-viewer-container .pdf-viewer-progress {
+    min-height: 15px;
+    max-height: 15px;
+    height: 15px;
+    margin: 0;
+}
+.pdf-viewer-container .pdf-viewer-progress .pdf-viewer-progress-bar {
+    width: 100%;
+    height: 100%;
+}
+.pdf-viewer-container .pdf-viewer-thumbs .pdf-viewer-thumbs-container {
+    margin: 5px 0 0;
+    overflow: hidden;
+    min-height: 235px;
+}
+.pdf-viewer-container .pdf-viewer-thumbs .pdf-viewer-thumbs-container .pdf-viewer-thumb {
+    background: transparent none no-repeat center top;
+    opacity: 0.65;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-transition: 0.75s ease;
+    -moz-transition: 0.75s ease;
+    -o-transition: 0.75s ease;
+    transition: 0.75s ease;
+}
+.pdf-viewer-container .pdf-viewer-thumbs .pdf-viewer-thumbs-container .pdf-viewer-thumb-selected {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+.pdf-viewer-container .pdf-viewer-thumbs .pdf-viewer-thumbs-container .pdf-viewer-thumb-box {
+    width: 100%;
+    max-height: 230px;
+}
+.pdf-viewer-container .pdf-viewer-preview .pdf-viewer-preview-box {
+    -webkit-box-shadow: 0 0 20px #222;
+    -moz-box-shadow: 0 0 20px #222;
+    box-shadow: 0 0 20px #222;
+    width: 100%;
+}
+.pdf-viewer-container .pdf-viewer-preview .pdf-viewer-pager {
+    background: transparent none no-repeat center center;
+    min-width: 100px;
+    min-height: 18px;
+}
+.pdf-viewer-container .pdf-viewer-thumbs .pdf-viewer-thumbs-container .pdf-viewer-thumb-loading,
+.pdf-viewer-container .pdf-viewer-preview .pdf-viewer-pager-loading {
+    background-image: url('images/pdf-viewer-loading.gif');
+}
