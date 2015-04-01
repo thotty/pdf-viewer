@@ -1,4 +1,4 @@
-# pdf-viewer
+# PDF-Viewer
 
 A idéia é usar como visualizador de PDF's tendo como base o fantástico [PDF.js](http://mozilla.github.io/pdf.js) e usar em sistemas e afins…
 
