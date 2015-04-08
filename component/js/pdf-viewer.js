@@ -33,7 +33,7 @@ var PDFViewer = function (options) {
      */
     _options = $.extend({
         pdfViewerContainer: $(),
-        style: 'bootstrap-v2.1.1',
+        style: 'bootstrap-v2.x',
         i18n: 'pt-BR',
         initialPage: 1,
         debugNoise: false
@@ -188,7 +188,7 @@ var PDFViewer = function (options) {
             //@todo: implementar outros estilos...
             //       decorator['style'] = function (element) {/*...*/};
 
-            decorator['bootstrap-v2.1.1'] = function (element) {
+            decorator['bootstrap-v2.x'] = function (element) {
                 var wrapper = $('<div />').addClass('row-fluid');
                 element.addClass('span12').wrap(wrapper);
             };
@@ -227,7 +227,7 @@ var PDFViewer = function (options) {
             //@todo: implementar outros estilos...
             //       decorator['style'] = function (progressContainer) {/*...*/};
 
-            decorator['bootstrap-v2.1.1'] = function (progressContainer) {
+            decorator['bootstrap-v2.x'] = function (progressContainer) {
                 _viewObjects.subElements.progressBar = $('<div />');
                 _viewObjects.subElements.progressBar.addClass('bar bar-success');
                 _viewObjects.subElements.progressBar.css('width', '0%');
@@ -248,7 +248,7 @@ var PDFViewer = function (options) {
             //@todo: implementar outros estilos...
             //       decorator['style'] = function (container) {/*...*/};
 
-            decorator['bootstrap-v2.1.1'] = function (container) {
+            decorator['bootstrap-v2.x'] = function (container) {
                 var containerId = _getRandomId('thumbsContainer'),
                     carouselContainer = $('<div />').addClass('carousel-inner'),
                     carouselFirstItem = $('<div />').addClass('item active'),
@@ -308,7 +308,7 @@ var PDFViewer = function (options) {
             //@todo: implementar outros estilos...
             //       decorator['style'] = function (container, box, prev, next, pager) {/*...*/};
 
-            decorator['bootstrap-v2.1.1'] = function (container, box, prev, next, pager) {
+            decorator['bootstrap-v2.x'] = function (container, box, prev, next, pager) {
                 var rowPager = $('<div />').addClass('row-fluid'),
                     rowBox = $('<div />').addClass('row-fluid'),
                     pagerContainer = $('<ul />').addClass('pager'),
@@ -393,7 +393,7 @@ var PDFViewer = function (options) {
             //@todo: implementar outros estilos...
             //       decorator['style'] = function (percent, progressBar, progressContainer) {/*...*/};
 
-            decorator['bootstrap-v2.1.1'] = function (percent, progressBar, progressContainer) {
+            decorator['bootstrap-v2.x'] = function (percent, progressBar, progressContainer) {
                 progressBar.width(percent + '%');
                 if (0 >= percent || percent >= 100) {
                     progressContainer.removeClass('active');
@@ -418,7 +418,7 @@ var PDFViewer = function (options) {
             //@todo: implementar outros estilos...
             //       decorator['style'] = function (container, thumbs) {/*...*/};
 
-            decorator['bootstrap-v2.1.1'] = function (container, thumbs) {
+            decorator['bootstrap-v2.x'] = function (container, thumbs) {
                 var thumbsTotal = _actions.getTotalPages(),
                     thumbsLimit = 5,
                     thumbsIndex = 0,
@@ -512,7 +512,7 @@ var PDFViewer = function (options) {
             //@todo: implementar outros estilos...
             //       decorator['style'] = function (thumb) {/*...*/};
 
-            decorator['bootstrap-v2.1.1'] = function (thumbWrapper, thumb) {
+            decorator['bootstrap-v2.x'] = function (thumbWrapper, thumb) {
                 if (!thumbWrapper.data('rendered')) {
                     var pageNumber = thumb.data('thumb-page');
 
@@ -554,7 +554,7 @@ var PDFViewer = function (options) {
                 //@todo: implementar outros estilos...
                 //       decorator['style'] = function (active, progressContainer, thumbsContainer, pager, pageNumber) {/*...*/};
 
-                decorator['bootstrap-v2.1.1'] = function (active, progressContainer, thumbsContainer, pager, pageNumber) {
+                decorator['bootstrap-v2.x'] = function (active, progressContainer, thumbsContainer, pager, pageNumber) {
                     var thumbClass = _getClass('thumb'),
                         selectedThumbClass = _getClass('thumb-selected'),
                         renderingProgressClass = 'active',
